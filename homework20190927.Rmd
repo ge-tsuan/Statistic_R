@@ -1,0 +1,132 @@
+
+
+
+## 2.10 
+
+a. What two variables are measured on each individual in
+Case Study 1.6?
+took aspirin or not, and heart attack happened or not  
+b. Describe the observational units in this study.
+22,071位男性內科醫師，每一位都是一個observational unit。
+
+c. What was the sample size for the study?
+參與實驗的男醫生有22,071位，這個數量就是sample size
+
+d. Explain whether you think the researchers treated the
+observed data as sample data or as population data.
+我們有所有兩萬名男醫生是否發生心臟病的資料，理論上可以把觀察到的資料當作是母體，做實驗的時候隨機的讓有人接受aspirin有人接受安慰劑，可以看成是從兩萬名男醫生的母體裡做抽樣。透過隨機抽樣來避免由於其他是否服用aspirin以外的因素影響到發生心臟病的比率。也因此研究的成果沒有辦法套用到女性身上，因為女性沒有包含在實驗的母體裡面。
+
+
+
+## 2.26
+a.
+自變項：唸書的時間(連續變數)
+依變項：GPA的數字（連續變數）
+b. 
+自變項：收入的區間（離散變數）
+依變項：繳稅的稅率（連續變數）
+
+## 2.50
+```{r}
+setwd("~/Documents/Tai-tai/108-1/Statistics with Practices/dataset/R")
+load(file = "pennstate1m.rdata")
+stem(pennstate1m$f)
+hist(pennstate1m$f
+)
+
+```
+點圖和枝葉圖比起長條圖，在描述人的分佈上可以比較詳細（標示的刻度比較小），三者之中以點圖人數分布的刻度最小。
+圖片的形狀是右傾
+
+## 2.64
+
+```{r}
+
+
+df = c(196, 212, 200, 242, 206, 178, 184, 198, 160, 182, 198, 182, 222, 198, 188, 166, 204, 178, 164, 230)
+fivenum(df)
+boxplot(df)
+```
+
+
+## 2.76
+```{r}
+
+
+canadapoplulation1=c( 2, 30, 35, 70, 100, 120, 135, 150, 190, 200)
+canadapoplulation2=c(8, 12, 16, 29, 35, 40, 45, 46, 95)
+
+fivenum(canadapoplulation1)
+fivenum(canadapoplulation2)
+max(canadapoplulation1)-min(canadapoplulation1)
+max(canadapoplulation2)-min(canadapoplulation2)
+# 第一組的range比第二組大很多
+boxplot(canadapoplulation1,canadapoplulation2)
+```
+## 2.86
+
+```{r}
+a=c(18, 19, 20, 21, 22)
+b=c(20, 20, 20, 20, 20)
+d=c(1, 5, 7, 8, 79)
+mean(a)
+mean(b)
+mean(d)
+
+sd(a)
+sd(b)
+sd(d)
+
+
+```
+
+
+
+## 2.106
+
+```{r
+# a
+SATmean=500
+zSAT=(450-500)/100
+pnorm(zSAT)
+# a.共有30.853%的學生成績低於450
+
+meanHeight=34
+zHeight=(36.5-meanHeight)/1
+zHeight
+pnorm(zHeight)
+# b.共有99.379%的男生身高低於36.5英吋
+
+meanScore=75
+zScore=(79-meanScore)/8
+pnorm(zScore)
+
+# c. 成績低於我的同學有69.146%
+
+pnorm((79-75)/4)
+
+# d. 成績低於我的同學有84.134%
+```
+R/程式練習題
+```{r}
+
+
+data= read.table(file="Student.csv", header=T, sep=",")
+ detect=abs((3-mean(data$GPA, na.rm=T)))<=1.5*IQR(data$GPA, na.rm=T)
+# detect==T
+data$Sex=NULL
+data$ReligImp=NULL
+data$Seat=NULL
+
+MyOutlierDetect=function(ang1, ang2) {
+	if ((abs(ang2-mean(data$ang1, na.rm=T)))<=1.5*IQR(data$ang1, na.rm=T))
+		{result<-"No"}
+	else{result<-"Yes"}
+	return(result)}
+class(data$GPA)
+MyOutlierDetect(GPA,3)
+
+```
+
+}
+

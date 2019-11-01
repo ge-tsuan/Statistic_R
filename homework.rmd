@@ -1,0 +1,145 @@
+---
+title: '統計學及實習＿作業一'
+author: "Khó͘ Gē-Choân"
+date: "9/11/2019"
+output: html_document
+---
+
+## 3.1
+```{r}
+(2019-2014)/22*100
+```
+
+## 3.2
+```{r}
+age       = 22
+fisrtyear = 2014
+fifthyear = 2019
+(fifthyear-fisrtyear)/age*100
+```
+
+## 3.4
+```{r}
+a=c(4,5,8,11)
+sum(a)
+```
+
+## 3.5
+```{r}
+x=rnorm(100)
+plot(x)
+```
+
+## 3.6
+```{r}
+help(sqrt)
+
+```
+
+## 5
+```{r}
+source("script.R")
+
+```
+
+## 6.2
+```{r}
+P<-seq(31:60)
+Q<-matrix(31:60,  ncol=5, nrow=6)
+```
+
+## 6.3
+
+```{r}
+x1 = rnorm(100)
+x2 = rnorm(100)
+x3 = rnorm(100)
+t  = data.frame("a"=x1, "b"=x1+x2, "c"=x1+x2+x3)
+plot(t)
+sapply(t, sd)
+
+```
+
+## 6.4.
+
+```{r}
+plot(t$a, type  = "l", ylim = range(t),
+ lwd            = 10, col   = rgb(1,0,0,0.3))
+lines(t$b, type = "p", lwd  = 2,
+ col            = rgb(0.3,0.4,0.3,0.9))
+points(t$c, pch = 13, cex   = 10,
+ col            = rgb(0,0,1,0.3))
+```
+-----
+
+- rgb:
+	定義顏色的函式，如圖表中線條或是點的顏色。
+- lwd:調整線的粗細。
+- type：可以選擇"p","l"或"t",l是折線圖，p是散點圖。 
+- cex:調整點的大小
+- pch:改變點的形狀
+
+## 8
+```{r}
+
+d = data.frame(a = c(1,2,4,8,16,32),
+g = c(2,4,8,16,32,64),x = c(3,6,12,24,48,96))
+ write.table(d, file = "tst1.txt", row.names = TRUE)
+                  dd = read.table(file  = "tst1.txt",)
+                dd$g = dd$g*5
+           print(dd)
+write.table(dd, file = "tst2.txt", row.names = TRUE)
+
+```
+
+## 9
+```{r}
+mean(sqrt(rnorm(100))) # 出現資料遺漏
+
+mean(sqrt(rnorm(100)),na.rm=TRUE)
+```
+
+## 10.2
+```{r}
+date3                   = strptime( c("20190913000000","20141206000000","20200830000000"),format = "%Y%m%d%H%M%S")
+presents                = c(0,0,1)
+plot(date3,presents,lwd = 5)
+
+```
+
+## 11.2
+
+```{r}
+
+h=seq(1:100)
+s=c()
+for (i in 5:90)
+{	s[i] = h[i]*10}
+for(i in 1:4 )
+{s[i]  = h[i]*0.1}
+for(i in 91:100)
+{s[i]  = h[i]*0.1}
+print(s)
+```
+	
+
+## 11.3
+```{r}
+fun1 = function(arg1,arg2)
+{ 
+	x = rnorm(100)
+	y = seq(100)
+	s = c()
+for (i in 1:length(y))
+{s[i]=y[i]*arg1+x[i]*arg2}
+
+return(mean(s)) 
+}
+fun1(12,3)
+```
+
+
+
+
+
+

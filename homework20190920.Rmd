@@ -1,0 +1,24 @@
+---
+title: "homework20190920.Rmd"
+author: "CHOAN"
+date: "9/20/2019"
+output: html_document
+---
+
+```{r }
+
+slices=c(20.9, 30.6, 24.7,15.7,8.1)
+Age= c("Under 20", "20-24", "25-29","30-34","35 and over")
+pct=round(slices/sum(slices)*100,digits = 1)
+Age=paste("Aged",Age)
+Age=paste(Age,pct, sep=" : ")
+Age=paste(Age,"%")
+pie(slices,labels= Age)
+barplot(slices, names.arg=c("Under 20", "20-24", "25-29", "30-34", "35 and over"),xlab=" the age which had a first child" )
+
+# 
+```
+
+##### 我認為在這個例子中使用barchart較好，因為Ｘ軸代表的資料是具有連續性的年紀，barchart可以顯示出來連續的趨勢，也就是以24-29歲為高峰，接著逐漸往下。但是pirchart就較難看出這種趨勢。
+
+

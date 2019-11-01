@@ -1,0 +1,26 @@
+```{r}
+
+
+Prop_CI=function(p, n, confd){
+	
+	all.phat=c()
+	for(i in 1:10000){
+		phat= sum(sample(c(0,1), n, replace=T, prob=c(1-pm p)))/n
+		all,phat[i]=phat
+	}
+
+	all.phat=sort(all.phat)
+	low.per=ceiling((1-confd)/2*10000 )
+	low.vlue=all.phat[low.per]
+	high.per=ceiling((1-(1-confd)/2)*10000)
+	print(paste())
+
+
+}
+
+
+
+
+```
+
+

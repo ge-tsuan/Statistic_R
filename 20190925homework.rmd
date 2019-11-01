@@ -1,0 +1,204 @@
+---
+title: "Homework20190925"
+author: "Khóo Gē-Choân"
+date: "2019/10/4"
+output: html_document
+---
+# 7.14
+```{r}
+
+# a.
+1/6
+#b.
+1/6+1/6
+#3.
+1/6
+
+```
+
+# 7.32
+```{r}
+
+# a.
+
+22/190
+
+# b.
+(2+6)/190
+
+# c.
+
+(2+22+18+56+14)/190
+```
+
+# 7.48
+
+```{r}
+# a.
+
+pA=0.55
+pB=0.55*0.8+0.45*0.1
+
+pAc=0.45
+pBgivenA=0.8
+pBgivenAc=0.1
+
+# b
+pAandB=pA*pBgivenA
+# 代表是共和黨黨員，且投給候選人Ｘ的機率
+# c
+
+pAcandB=pAc*pBgivenAc
+# 代表是非共和黨員，而且投給候選人X的機率
+pBgivenAc+pBgivenA
+# 等於全部的pB
+
+# d
+# 候選人Ｘ收到的票佔全部票數的0.485
+
+
+```
+
+# 7.58
+
+```{r}
+#a.#金髮是生理上的特徵，跟開貨車或抽煙大概無關，不過如果說開貨車多半是工人，而當地的工人多半會抽菸的話，或許開紅色貨車和抽煙就不會是完全獨立的特徵。
+
+#b
+0.02*0.3*0.2
+
+#c
+10000*0.02*0.3*0.2
+
+#d
+1/12
+# 不同意。抓正確的機率只有十二分之一，很高的機率是抓錯人。一個人要同時會開紅色貨車、抽菸又金髮的機率不高，但母體是一萬人的時候這種人出現就不意外。
+
+
+```
+
+
+# 7.74
+
+```{r}
+pH=0.02
+pTH=0.98
+pDT=0.05
+pH*pTH/(pH*pTH+(1-pH)*pDT)
+
+# 有0.2857的機率病人有得病
+```
+
+
+# 7.82
+
+```{r}
+
+# a
+0.3*0.4 
+#遇到紅燈又遇到交流道的機率=0.12
+
+# b
+pRedlight=0.3
+pCom=0.3*0.4+0.7*0.2 #pRedligt*pComgivenRed+pRedlightC*pComgivenRedlightC
+
+pComgivenRed=0.4 # =pRedgivenCom*pCom/pRedlight
+
+pRedgivenCom=0.4*0.3/pCom
+
+pRedgivenCom
+#遇到交流道的前提下遇到紅燈的機率
+
+#C
+# 用sample函數去抽1到100，如果抽到1到30的話就是有遇到紅燈。如果是抽到1到12的話，就是遇到紅燈又到交流道。
+
+# d
+
+SimEvent=function(times){
+
+countCom=0
+countRed=0
+for(i in 1:times){
+result=sample(1:100, size=1, replace=T)
+
+if(result<=30)
+	{
+		happen=1
+
+	}else{
+		happen=0
+	}
+if(happen==1){
+	countRed=countRed+1
+}
+if (result<=12){
+	happen1=1
+}else{
+	happen1=0
+}
+if(happen1==1){
+countCom=countCom+1}
+}
+
+cat(" 遇到紅燈：",countRed,"\n","遇到紅燈又遇到交流道：",countCom,"\n")
+}
+SimEvent(50)
+SimEvent(100)
+SimEvent(1000)
+SimEvent(2000)
+
+# d
+# 重複次數提高到一千次之後，其實就變得蠻準的，遇到紅燈的機率大多在0.28到0.32 之間。如果只有50次的話就會差距比較大。
+
+```
+
+# R程式練習題
+
+```{r}
+
+
+result=sample(1:4, size=6, replace=T)
+result
+count4 <- length(which(result == 4))
+count4
+countP=0
+if (count4>=3){
+	countP=countP+1
+}
+for (i in 1:100){
+
+result=sample(1:4, size=6, replace=T)
+count4 <- length(which(result == 4))
+if (count4>=3){
+	countP=countP+1
+	}
+}
+countP
+######
+SimProb=function(t2,t1){
+	countP=0
+for(i in 1:t2){
+
+result=sample(1:4, size=t1, replace=T)
+count4 <- length(which(result == 4))
+if (count4>=3){
+	countP=countP+1
+		}
+	}
+Prob=countP/t2
+
+cat(Prob,"\n")
+
+
+}
+
+
+SimProb(1000,6)
+SimProb(10000,6)
+qimProb(100000,6)
+
+```
+
+
+
+
