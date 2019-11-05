@@ -14,9 +14,15 @@ money= c(200, 175, 450, 300,  350,  250, 150, 200, 320, 370, 404, 250)
 
 
 boxplot(money, main= "Spend for textbooks this semester", ylab="dollars")
-dotchart(money, main= "Spend for textbook this semester" )
-stripchart(money, method="stack", at=0.0, offset=3, main ="money spent on textbooks", bty='n', pch=1, axes=FALSE)
-axis(side=1, at=0)
+#dotchart(money, main= "Spend for textbook this semester" )
+stripchart(money, method="stack", at=0.1,  offset=3, main ="money spent on textbooks",  pch=1, xaxt='s', bty='n') 
+par("pin"=c(5,1))
+par("bty"='n')
+axis(1, at=2, lwd=2, col="black")     
+
+
+
+
 
 ## a. looks like there are no outlier in the dotplot, ane 
 
