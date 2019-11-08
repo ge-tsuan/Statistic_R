@@ -18,7 +18,18 @@ boxplot(money, main= "Spend for textbooks this semester", ylab="dollars")
 stripchart(money, method="stack", at=0.1,  offset=3, main ="money spent on textbooks",  pch=1, xaxt='s', bty='n') 
 par("pin"=c(5,1))
 par("bty"='n')
-axis(1, at=2, lwd=2, col="black")     
+##jahis(1, at=2, lwd=2, col="black")     
+## 雖然樣本數少於30，不過從點圖和盒狀圖的分佈來看.大致上是對稱的分佈,u,也沒有outlier，所以還是可以判斷是近似常態分佈的bell shape
+
+sd34=sd(money)
+se34=sd34/sqrt(12)
+se34
+
+## 和題目給的SE MEAN 27.7  接近
+
+#c.$\
+
+
 
 
 
