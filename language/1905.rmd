@@ -1,0 +1,14 @@
+
+```{r}
+
+Taioanlang=2753212 
+Kngtanglang=478557 
+sekhoan=47676
+
+
+
+
+```
+
+
+
